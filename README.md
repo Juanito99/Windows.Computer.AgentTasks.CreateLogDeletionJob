@@ -11,8 +11,10 @@ scheduled script to do so. This Management Pack provides a convenient way to cre
 
 
 ### Pictures:
+Task in the SCOM Console:
 ![Task_In_the_Console](https://raw.githubusercontent.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/master/PicturesForGitWebSite/MonitoringPaneShowTask.png)
 
+Scheduled Task and PowerShell script on the monitored computer:
 ![Task_On_the_Client](https://raw.githubusercontent.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/master/PicturesForGitWebSite/ScheduledTaskAndScript.png)
 
 
@@ -22,12 +24,12 @@ scheduled script to do so. This Management Pack provides a convenient way to cre
 
 
 ### Downloads:
-[ManagementPack-Sealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Release/Windows.Computer.AgentTasks.CreateLogDeletionJob.mp) 
+[ManagementPack-Sealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Release/Windows.Computer.AgentTasks.CreateLogDeletionJob.mp) 
 
-[ManagementPack-UnSealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Debug/Windows.Computer.AgentTasks.CreateLogDeletionJob.xml)
+[ManagementPack-UnSealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Release/Windows.Computer.AgentTasks.CreateLogDeletionJob.xml)
 
 
-[Source for VSAE 2017](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/tree/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/Windows.Computer.AgentTasks.CreateLogDeletionJob)
+[Source for VSAE 2017](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/tree/master/Windows.Computer.AgentTasks.CreateLogDeletionJob)
 
 
 
