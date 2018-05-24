@@ -1,0 +1,14 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LanguagePacks>
+
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="Windows.Computer.AgentTasks.CreateLogDeletionJob">
+          <Name>Windows Computer AgentTasks CreateLogDeletionJob</Name>
+          <Description>Creates a scheduled task on the managed computer which automatically deletes old logs.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+
+</ManagementPackFragment>

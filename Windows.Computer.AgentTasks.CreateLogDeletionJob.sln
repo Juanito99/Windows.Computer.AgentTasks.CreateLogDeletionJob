@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "Windows.Computer.AgentTasks.CreateLogDeletionJob", "Windows.Computer.AgentTasks.CreateLogDeletionJob\Windows.Computer.AgentTasks.CreateLogDeletionJob.mpproj", "{E2860361-3997-466F-8648-1ABBB2F81B6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2860361-3997-466F-8648-1ABBB2F81B6F}.Debug|x86.ActiveCfg = Debug|x86
+		{E2860361-3997-466F-8648-1ABBB2F81B6F}.Debug|x86.Build.0 = Debug|x86
+		{E2860361-3997-466F-8648-1ABBB2F81B6F}.Release|x86.ActiveCfg = Release|x86
+		{E2860361-3997-466F-8648-1ABBB2F81B6F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEB668AF-B111-49F8-B4C8-66E174986CEB}
+	EndGlobalSection
+EndGlobal
