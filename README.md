@@ -23,6 +23,8 @@ Scheduled Task and PowerShell script on the monitored computer:
 [Documentation](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Documentation/SCOM%20-%20Agent%20Tasks%20-%20Create%20Log%20Deletion%20Job.pdf)
 
 
+
+
 ### Downloads:
 [ManagementPack-Sealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Release/Windows.Computer.AgentTasks.CreateLogDeletionJob.mp) 
 
@@ -31,6 +33,10 @@ Scheduled Task and PowerShell script on the monitored computer:
 
 [Source for VSAE 2017](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/tree/master/Windows.Computer.AgentTasks.CreateLogDeletionJob)
 
+
+
+### Community Management Pack:
+Keep this and many other management packs automatically up to date by installing the [Community Management Pack](https://squaredup.com/landing-pages/the-scom-community-mp-catalog)
 
 
 
