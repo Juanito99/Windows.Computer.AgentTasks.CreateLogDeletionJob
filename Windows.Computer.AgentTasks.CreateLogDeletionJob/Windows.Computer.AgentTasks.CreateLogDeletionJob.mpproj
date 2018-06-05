@@ -64,6 +64,7 @@
     <Folder Include="Health Model\Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Health Model\Tasks\CreateLogCompressDeletionJob.ps1" />
     <EmbeddedResource Include="Health Model\Tasks\CreateLogDeletionJob.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VSAC\Microsoft.SystemCenter.OperationsManager.targets" />

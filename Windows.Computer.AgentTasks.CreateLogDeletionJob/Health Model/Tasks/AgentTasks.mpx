@@ -1,18 +1,19 @@
 ﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-  <TypeDefinitions>
+  <TypeDefinitions>    
     <ModuleTypes>
+      
       <WriteActionModuleType ID="Windows.Computer.AgentTasks.CreateLogDeletionJob.WriteAction" Accessibility="Internal" Batching="false">
         <Configuration>
           <xsd:element minOccurs="1" name="LogFileDirectory" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
-          <xsd:element minOccurs="1" name="LogFileType" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="1" name="LogFileTypes" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
           <xsd:element minOccurs="1" name="ScheduledTasksFolder" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
           <xsd:element minOccurs="1" name="DaysToKeepLogs" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
           <xsd:element minOccurs="1" name="TimeoutSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
         </Configuration>
         <OverrideableParameters>
           <OverrideableParameter ID="LogFileDirectory" Selector="$Config/LogFileDirectory$" ParameterType="string" />
-          <OverrideableParameter ID="LogFileType" Selector="$Config/LogFileType$" ParameterType="string" />
+          <OverrideableParameter ID="LogFileTypes" Selector="$Config/LogFileTypes$" ParameterType="string" />
           <OverrideableParameter ID="ScheduledTasksFolder" Selector="$Config/ScheduledTasksFolder$" ParameterType="string" />
           <OverrideableParameter ID="DaysToKeepLogs" Selector="$Config/DaysToKeepLogs$" ParameterType="int" />          
         </OverrideableParameters>
@@ -28,8 +29,8 @@
                     <Value>$Config/LogFileDirectory$</Value>
                   </Parameter>
                   <Parameter>
-                    <Name>LogFileType</Name>
-                    <Value>$Config/LogFileType$</Value>
+                    <Name>LogFileTypes</Name>
+                    <Value>$Config/LogFileTypes$</Value>
                   </Parameter>
                   <Parameter>
                     <Name>ScheduledTasksFolder</Name>
@@ -51,31 +52,108 @@
         <OutputType>System!System.BaseData</OutputType>
         <InputType>System!System.BaseData</InputType>
       </WriteActionModuleType>
+
+      <WriteActionModuleType ID="Windows.Computer.AgentTasks.CreateLogCompressDeletionJob.WriteAction" Accessibility="Internal" Batching="false">
+        <Configuration>
+          <xsd:element minOccurs="1" name="LogFileDirectory" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="1" name="LogFileTypes" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="1" name="ScheduledTasksFolder" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="1" name="DaysBeforeCompressLogs" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="1" name="DaysBeforeDeleteCompressedLogs" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="1" name="TimeoutSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="LogFileDirectory" Selector="$Config/LogFileDirectory$" ParameterType="string" />
+          <OverrideableParameter ID="LogFileTypes" Selector="$Config/LogFileTypes$" ParameterType="string" />
+          <OverrideableParameter ID="ScheduledTasksFolder" Selector="$Config/ScheduledTasksFolder$" ParameterType="string" />
+          <OverrideableParameter ID="DaysBeforeCompressLogs" Selector="$Config/DaysBeforeCompressLogs$" ParameterType="int" />
+          <OverrideableParameter ID="DaysBeforeDeleteCompressedLogs" Selector="$Config/DaysBeforeDeleteCompressedLogs$" ParameterType="int" />
+        </OverrideableParameters>
+        <ModuleImplementation Isolation="Any">
+          <Composite>
+            <MemberModules>
+              <WriteAction ID="PowerShellWriteAction" TypeID="Windows!Microsoft.Windows.PowerShellWriteAction">
+                <ScriptName>CreateLogCompressDeletionJob.ps1</ScriptName>
+                <ScriptBody>$IncludeFileContent/Health Model/Tasks/CreateLogCompressDeletionJob.ps1$</ScriptBody>
+                <Parameters>
+                  <Parameter>
+                    <Name>LogFileDirectory</Name>
+                    <Value>$Config/LogFileDirectory$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>LogFileTypes</Name>
+                    <Value>$Config/LogFileTypes$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>ScheduledTasksFolder</Name>
+                    <Value>$Config/ScheduledTasksFolder$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>DaysBeforeCompressLogs</Name>
+                    <Value>$Config/DaysBeforeCompressLogs$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>DaysBeforeDeleteCompressedLogs</Name>
+                    <Value>$Config/DaysBeforeDeleteCompressedLogs$</Value>
+                  </Parameter>
+                </Parameters>
+                <TimeoutSeconds>$Config/TimeoutSeconds$</TimeoutSeconds>
+              </WriteAction>
+            </MemberModules>
+            <Composition>
+              <Node ID="PowerShellWriteAction" />
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.BaseData</OutputType>
+        <InputType>System!System.BaseData</InputType>
+      </WriteActionModuleType>
+      
     </ModuleTypes>
   </TypeDefinitions>
 
-  <Monitoring>
+  <Monitoring>    
     <Tasks>
-      <Task ID="Windows.Computer.AgentTasks.CreateLogDeletionJob.Task" Accessibility="Public" Enabled="true" Target="Windows!Microsoft.Windows.Computer" Timeout="120" Remotable="true">
+      
+      <Task ID="Windows.Computer.AgentTasks.CreateLogDeletionJob.Task" Accessibility="Public" Enabled="true" Target="Windows!Microsoft.Windows.Computer" Timeout="240" Remotable="true">
         <Category>Custom</Category>
         <WriteAction ID="PowerShellWriteAction" TypeID="Windows.Computer.AgentTasks.CreateLogDeletionJob.WriteAction">
           <LogFileDirectory>C:\TheLogFileDirectory</LogFileDirectory>
-          <LogFileType>*.???</LogFileType>
+          <LogFileTypes>*.???</LogFileTypes>
           <ScheduledTasksFolder>C:\ScheduledTasks</ScheduledTasksFolder>
           <DaysToKeepLogs>7</DaysToKeepLogs>          
-          <TimeoutSeconds>60</TimeoutSeconds>
+          <TimeoutSeconds>180</TimeoutSeconds>
         </WriteAction>
       </Task>
+
+      <Task ID="Windows.Computer.AgentTasks.CreateLogCompressDeletionJob.Task" Accessibility="Public" Enabled="true" Target="Windows!Microsoft.Windows.Computer" Timeout="240" Remotable="true">
+        <Category>Custom</Category>
+        <WriteAction ID="PowerShellWriteAction" TypeID="Windows.Computer.AgentTasks.CreateLogCompressDeletionJob.WriteAction">
+          <LogFileDirectory>C:\TheLogFileDirectory</LogFileDirectory>
+          <LogFileTypes>*.???</LogFileTypes>
+          <ScheduledTasksFolder>C:\ScheduledTasks</ScheduledTasksFolder>
+          <DaysBeforeCompressLogs>7</DaysBeforeCompressLogs>
+          <DaysBeforeDeleteCompressedLogs>14</DaysBeforeDeleteCompressedLogs>
+          <TimeoutSeconds>180</TimeoutSeconds>
+        </WriteAction>
+      </Task>
+    
     </Tasks>
   </Monitoring>
 
   <LanguagePacks>
     <LanguagePack ID="ENU" IsDefault="true">
       <DisplayStrings>
+        
         <DisplayString ElementID="Windows.Computer.AgentTasks.CreateLogDeletionJob.Task">
           <Name>Create Log Deletion Job</Name>
+        </DisplayString>      
+
+        <DisplayString ElementID="Windows.Computer.AgentTasks.CreateLogCompressDeletionJob.Task">
+          <Name>Create Log Compress ( + Deletion ) Job</Name>
         </DisplayString>
-      </DisplayStrings>
+      
+      </DisplayStrings>      
       <KnowledgeArticles></KnowledgeArticles>
     </LanguagePack>
   </LanguagePacks>

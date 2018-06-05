@@ -1,4 +1,7 @@
-Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogDeletionJob.WriteAction*5*8*WriteActionModuleType
-Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogDeletionJob.Task*59*8*Task
-Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogDeletionJob.Task*75*10*DisplayString
+Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogDeletionJob.WriteAction*6*8*WriteActionModuleType
+Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogCompressDeletionJob.WriteAction*56*8*WriteActionModuleType
+Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogDeletionJob.Task*118*8*Task
+Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogCompressDeletionJob.Task*129*8*Task
+Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogDeletionJob.Task*148*10*DisplayString
+Health Model\Tasks\AgentTasks.mpx*Windows.Computer.AgentTasks.CreateLogCompressDeletionJob.Task*152*10*DisplayString
 Project.mpx*Windows.Computer.AgentTasks.CreateLogDeletionJob*6*10*DisplayString
