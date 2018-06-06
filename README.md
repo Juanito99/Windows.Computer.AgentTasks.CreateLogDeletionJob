@@ -3,6 +3,7 @@
 ‘Create Log Deletion Job’ is a Management Pack that contains two SCOM – Agent Tasks to tame logfile growth.
 * Create Log Deletion Job creates a scheduled task that deletes log files older than N days on the monitored computer. 
 * Create Log Compress ( + Deletion ) Job creates a scheduled task that compresses files older than N days and optionally also deletes the compressed files older than M days on the monitored computer.
+
 It works on SCOM 2012 R2 and later.
 
 
