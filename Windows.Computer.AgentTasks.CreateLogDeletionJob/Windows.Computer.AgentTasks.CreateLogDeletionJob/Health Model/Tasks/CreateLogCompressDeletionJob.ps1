@@ -75,9 +75,9 @@ Function Write-LogDirCleanScript {
 		Exit
 	}
 
-	if ($LogFileTypes -notMatch '\*\.[a-zA-Z0-9]{3,}') {
+	if ($LogFileTypes -notMatch '\*\.[a-zA-Z0-9]{3,}[\w\-_\*]{0,}') {
 		$LogFileTypes = '*.' + $LogFileTypes
-		if ($LogFileTypes -notMatch '\*\.[a-zA-Z0-9]{3,}') {
+		if ($LogFileTypes -notMatch '\*\.[a-zA-Z0-9]{3,}[\w\-_\*]{0,}') {
 			$msg = "Script function (Write-LogDirCleanScript, scriptPath: $($scriptPath)) failed. LogFileTypes: $($LogFileTypes) seems to be not correct."
 			Write-Warning -Message $msg
 			$api.LogScriptEvent('CreateLogCompressDeletionJob',4101,1,$msg)		
@@ -131,7 +131,7 @@ try {
 	
 	if ( ${DaysBeforeDeleteCompressedLogs} -gt 0 ) {
 		$([System.Environment]::NewLine)
-		Get-ChildItem -Path `$logDirectoryParent -Filter 'Logs_CompressLogsOn_*.zip' -ErrorAction SilentlyContinue | Where-Object { (New-TimeSpan -start `$_.LastWriteTime -end (`$now)).TotalDays -gt ${DaysBeforeDeleteCompressedLogs} } | Remove-Item -Force		
+		Get-ChildItem -Path `$logDirectoryParent -Filter '_CompressLogsOn_*.zip' -ErrorAction SilentlyContinue | Where-Object { (New-TimeSpan -start `$_.LastWriteTime -end (`$now)).TotalDays -gt ${DaysBeforeDeleteCompressedLogs} } | Remove-Item -Force		
 		$([System.Environment]::NewLine)
 	}
 	$([System.Environment]::NewLine)
@@ -149,9 +149,9 @@ try {
 
 	if ( ${DaysBeforeDeleteCompressedLogs} -gt 0 ) {
 		$([System.Environment]::NewLine)
-		Get-ChildItem -Path "`$logDirectoryParent\Logs_CompressLogsOn_*" -Recurse -ErrorAction SilentlyContinue | Where-Object { ((New-TimeSpan -start `$_.LastWriteTime -end (`$now)).TotalDays -gt ${DaysBeforeDeleteCompressedLogs}) -and (`$_.Attributes -match 'Compressed') } | Remove-Item -Force		
+		Get-ChildItem -Path "`$(`$logDirectoryParent)*_CompressLogsOn_*" -Recurse -ErrorAction SilentlyContinue | Where-Object { ((New-TimeSpan -start `$_.LastWriteTime -end (`$now)).TotalDays -gt ${DaysBeforeDeleteCompressedLogs}) -and (`$_.Attributes -match 'Compressed') } | Remove-Item -Force		
 		$([System.Environment]::NewLine)
-		Get-ChildItem -Path "`$logDirectoryParent\Logs_CompressLogsOn_*" -ErrorAction SilentlyContinue | Where-Object { ((New-TimeSpan -start `$_.LastWriteTime -end (`$now)).TotalDays -gt ${DaysBeforeDeleteCompressedLogs}) -and (`$_.Attributes -match 'Compressed') } | Remove-Item -Force		
+		Get-ChildItem -Path "`$(`$logDirectoryParent)*_CompressLogsOn_*" -ErrorAction SilentlyContinue | Where-Object { ((New-TimeSpan -start `$_.CreationTime -end (`$now)).TotalDays -gt ${DaysBeforeDeleteCompressedLogs}) -and (`$_.Attributes -match 'Compressed') } | Remove-Item -Force		
 		$([System.Environment]::NewLine)
 	}
 	$([System.Environment]::NewLine)
@@ -205,7 +205,7 @@ $logDirCleanScriptParams = @{
 	'LogFileDirectory'               = $LogFileDirectory	
 	'DaysBeforeCompressLogs'         = $DaysBeforeCompressLogs	
 	'DaysBeforeDeleteCompressedLogs' = $DaysBeforeDeleteCompressedLogs
-	'LogFileTypes'                    = $LogFileTypes
+	'LogFileTypes'                   = $LogFileTypes
 	'scriptPath'                     = $scriptPath
 }
 

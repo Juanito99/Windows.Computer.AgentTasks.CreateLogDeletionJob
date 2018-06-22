@@ -74,9 +74,9 @@ Function Write-LogDirCleanScript {
 		Exit
 	}
 
-	if ($LogFileTypes -notMatch '\*\.[a-zA-Z0-9]{3,}') {
+	if ($LogFileTypes -notMatch '\*\.[a-zA-Z0-9]{3,}[\w\-_\*]{0,}') {
 		$LogFileTypes = '*.' + $LogFileTypes
-		if ($LogFileTypes -notMatch '\*\.[a-zA-Z0-9]{3,}') {
+		if ($LogFileTypes -notMatch '\*\.[a-zA-Z0-9]{3,}[\w\-_\*]{0,}') {
 			$msg = "Script function (Write-LogDirCleanScript, scriptPath: $($scriptPath)) failed. LogFileTypes: $($LogFileTypes) seems to be not correct."
 			Write-Warning -Message $msg
 			$api.LogScriptEvent('CreateLogDeletionJob.ps1',4001,1,$msg)		
