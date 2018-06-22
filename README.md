@@ -30,9 +30,9 @@ Log Deletion Task in the SCOM Console:
 
 
 ### Downloads:
-[ManagementPack-Sealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Release/Windows.Computer.AgentTasks.CreateLogDeletionJob.mp) 
+[ManagementPack-Sealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Release/Windows.Computer.AgentTasks.CreateLogDeletionJob.mp) 
 
-[ManagementPack-UnSealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Release/Windows.Computer.AgentTasks.CreateLogDeletionJob.xml)
+[ManagementPack-UnSealed](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/blob/master/Windows.Computer.AgentTasks.CreateLogDeletionJob/Windows.Computer.AgentTasks.CreateLogDeletionJob/bin/Release/Windows.Computer.AgentTasks.CreateLogDeletionJob.xml)
 
 
 [Source for VSAE 2017](https://github.com/Juanito99/Windows.Computer.AgentTasks.CreateLogDeletionJob/tree/master/Windows.Computer.AgentTasks.CreateLogDeletionJob)
